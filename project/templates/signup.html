@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+            </div>
+        {% endif %}
+        {% endwith %}
+<section>
+    <div id="signup-section" class="pad-sec">
+
+      <div class="container">
+
+    <div class="title-section text-center animated out" data-animation="fadeInUp" data-delay="0">
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                <h2>Register To Know More </h2>
+                <hr>
+                <p>   </p>
+            </div>
+          </div> <!-- End row -->
+         <!-- end title-section -->
+
+        <div class="form-wrapper">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              
+              <!-- form fields -->
+             <form method="POST" action="/signup">
+                <fieldset>
+
+                  <div class="form-group">
+                    <input class="form-control br-b" type="email" name="email" id="email" placeholder="Email">
+                  </div>
+
+                  <div class="form-group">
+                    <input class="form-control br-b" type="text" name="name" id="name" placeholder="Name">
+                  </div>
+
+                  <div class="form-group">
+                    <input class="form-control br-b" type="password" name="password" id="name" placeholder="Password">
+                </div>
+                </fieldset>
+                
+                <button class="button is-block is-info is-large is-fullwidth" style="text-align:center:">Sign Up</button>
+
+                <div id="alert"></div>
+
+              </form>
+
+            </div> <!-- end col-md-8 -->
+          </div> <!-- end row -->
+        </div>  <!-- end form-wrapper -->
+
+      </div> <!-- end container -->
+    </div>  
+    </div> <!-- End contact-section -->
+  </section>
+{% endblock %}

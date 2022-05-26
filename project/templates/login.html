@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4" style="padding:20px; margin:15px;">
+    <h3 class="title" ><h2 style="text-align: center;">Login<b></h2>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}        
+        <form method="POST" action="/login" class="center">
+        <div class="title-section text-center animated out" data-animation="fadeInUp" data-delay="0.5">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h2>WELCOME TO THE WEBSITE</h2>
+                    </div>
+                </div>
+            <div class="form-wrapper">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+            <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="" style="width:30%; padding:12px; font-size:20px;">
+                </div>
+            </div>  
+            <p> --------------- </p>
+            <div class="form-wrapper">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <input class="input is-large" type="password" name="password" placeholder="Your Password" style="width:30%; padding:12px; font-size:20px">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+            </div>    
+          
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth"><b>Login<b></button>
+               
+        </form>
+        <br>
+    <a href="{{ url_for('auth.signup') }}"><strong>If not registered click to signup</strong></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
